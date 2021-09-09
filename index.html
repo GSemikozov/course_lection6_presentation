@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lesson 5. HTML/CSS Course</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+            --color-key: #b20600;
+        }
+    </style>
+</head>
+<body class="shower list grid">
+    <header class="caption">
+        <h1>Лекция 6</h1>
+    </header>
+
+    <section class="slide">
+        <h2 class="shout">Лекция 6</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Сегодня разберем:</h2>
+        <ul>
+            <li>Scss, Less, и другие препроцессоры</li>
+            <li>Постпроцессоры</li>
+            <li>Линтеры</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>package.json</h2>
+        <ul>
+            <li>Версия приложения</li>
+            <li>Название</li>
+            <li>Зависимости</li>
+            <li>Команды</li>
+            <li>Ключевые слова</li>
+            <li>...</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Расширения над css </h2>
+        <ul>
+            <li>Sass / Scss</li>
+            <li>Less</li>
+            <li>...много других</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2><a href='https://sass-lang.com/' target='_blank'>Sass / Scss</a></h2>
+        <img class="image_centered" style="height: 80%;" src="./pictures/scss.png">
+    </section>
+
+
+    <section class="slide">
+        <h2>Sass / Scss</h2>
+        <ul>
+            <li>Вложенные селекторы</li>
+            <li>Переменные</li>
+            <li>Миксины</li>
+            <li>Циклы</li>
+            <li>...</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2>Scss. Вложенные селекторы</h2>
+        <div class="columns two">
+            <pre>
+                <code><span class="rule">.block </span><span class="punctuation">{</span></code>
+                <code><span class="property">  background</span><span class="punctuation">:</span> yellow<span class="punctuation">;</span></code>
+                <code><span class="property">  </span></code>
+                <code><span class="rule">  &__line </span><span class="punctuation">{</span></code>
+                <code><span class="property">    color</span><span class="punctuation">:</span> red<span class="punctuation">;</span></code>
+                <code><span class="punctuation">  }</span></code>
+                <code><span class="property">  </span></code>
+                <code><span class="rule">  &__light </span><span class="punctuation">{</span></code>
+                <code><span class="property">    background</span><span class="punctuation">:</span> white<span class="punctuation">;</span></code>
+                <code><span class="punctuation">  }</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+            <div>
+                <pre>
+                    <code><span class="rule">.block </span><span class="punctuation">{</span></code>
+                    <code><span class="property">  background</span><span class="punctuation">:</span> yellow<span class="punctuation">;</span></code>
+                    <code><span class="punctuation">}</span></code>
+                    <code><span class="property">  </span></code>
+                    <code><span class="rule">.block__line </span><span class="punctuation">{</span></code>
+                    <code><span class="property">  color</span><span class="punctuation">:</span> red<span class="punctuation">;</span></code>
+                    <code><span class="punctuation">}</span></code>
+                    <code><span class="property">  </span></code>
+                    <code><span class="rule">.block__light </span><span class="punctuation">{</span></code>
+                    <code><span class="property">  background</span><span class="punctuation">:</span> white<span class="punctuation">;</span></code>
+                    <code><span class="punctuation">}</span></code>
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Scss. Переменные</h2>
+        <div class="columns two">
+            <pre>
+                <code><span class="rule">$main-color: #ff0 </span><span class="punctuation">;</span></code>
+                <code><span class="property">  </span></code>
+                <code><span class="rule">.block </span><span class="punctuation">{</span></code>
+                <code><span class="property">  background</span><span class="punctuation">:</span> $main-color<span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+            <pre>
+                <code><span class="rule">.block </span><span class="punctuation">{</span></code>
+                <code><span class="property">  background</span><span class="punctuation">:</span> #ff0<span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Scss. Миксины</h2>
+        <div class="columns two">
+            <pre>
+                <code><span class="rule">@mixin background($color) </span><span class="punctuation">{</span></code>
+                <code><span class="property">  background</span><span class="punctuation">:</span> $color<span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+                <code><span class="property">  </span></code>
+                <code><span class="rule">.block </span><span class="punctuation">{</span></code>
+                <code><span class="property">  @include background(red)</span><span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+            <pre>
+                <code><span class="rule">.block </span><span class="punctuation">{</span></code>
+                <code><span class="property">  background</span><span class="punctuation">:</span> red<span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Scss. Циклы</h2>
+        <div class="columns two">
+            <pre>
+                <code><span class="rule">$sizes: 40px, 50px</span><span class="punctuation">;</span></code>
+                <code><span class="property">  </span></code>
+                <code><span class="rule">@each $size in $sizes </span><span class="punctuation">{</span></code>
+                <code><span class="rule">  .block_size_#{$size} </span><span class="punctuation">{</span></code>
+                <code><span class="property">     width</span><span class="punctuation">:</span> $size<span class="punctuation">;</span></code>
+                <code><span class="property">     height</span><span class="punctuation">:</span> $size<span class="punctuation">;</span></code>
+                <code><span class="punctuation">  }</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+            <pre>
+                <code><span class="rule">.block_size_40px </span><span class="punctuation">{</span></code>
+                <code><span class="property">  width</span><span class="punctuation">:</span> 40px<span class="punctuation">;</span></code>
+                <code><span class="property">  height</span><span class="punctuation">:</span> 40px<span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+                <code><span class="property">  </span></code>
+                <code><span class="rule">.block_size_50px </span><span class="punctuation">{</span></code>
+                <code><span class="property">  width</span><span class="punctuation">:</span> 50px<span class="punctuation">;</span></code>
+                <code><span class="property">  height</span><span class="punctuation">:</span> 50px<span class="punctuation">;</span></code>
+                <code><span class="punctuation">}</span></code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Препроцессоры и постпроцессоры</h2>
+        <img class="image_centered" style="height: 60%;" src="./pictures/1.jpg">
+    </section>
+
+    <section class="slide">
+        <h2><a href='https://postcss.org/' target='_blank'>Postcss</a></h2>
+        <img class="image_centered" style="height: 80%;" src="./pictures/postcss.png">
+    </section>
+
+    <section class="slide">
+        <h2><a href='https://github.com/postcss/autoprefixer' target='_blank'>Autoprefixer</a></h2>
+        <div>Вендорные префиксы</div>
+        <pre>
+            <code><span class="property">-webkit-transition-duration</span><span class="punctuation">:</span> 0.5s<span class="punctuation">;</span></code>
+            <code><span class="property">-moz-transition-duration</span><span class="punctuation">:</span> 0.5s<span class="punctuation">;</span></code>
+            <code><span class="property">-o-transition-duration</span><span class="punctuation">:</span> 0.5s<span class="punctuation">;</span></code>
+            <code><span class="property">-ms-transition-duration</span><span class="punctuation">:</span> 0.5s<span class="punctuation">;</span></code>
+            <code><span class="property">transition-duration</span><span class="punctuation">:</span> 0.5s<span class="punctuation">;</span></code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2><a href='https://github.com/cssnano/cssnano' target='_blank'>Cssnano</a></h2>
+        Минифицирует css-код
+    </section>
+
+    <section class="slide">
+        <h2><a href='https://stylelint.io/' target='_blank'>Stylelint</a></h2>
+        <img class="image_centered" style="height: 80%;" src="./pictures/2.png">
+    </section>
+
+
+    <section class="slide">
+        <h2><a href='https://prettier.io/' target='_blank'>Prettier</a></h2>
+        <img class="image_centered" style="height: 80%;" src="./pictures/3.png">
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="./shower.js"></script>
+</body>
+</html>
